@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 if(isset($_GET['lang']) && $_GET['lang'] == 'sk'){$language = include('Login/lang/svk.php');
 }else if(isset($_GET['lang']) && $_GET['lang'] == 'en'){$language = include('Login/lang/eng.php');
 }else{$language = include('Login/lang/svk.php');}
@@ -61,7 +62,7 @@ if(isset($_GET['lang']) && $_GET['lang'] == 'sk'){$language = include('Login/lan
 
 </header>
 <div class="login-form">
-    <form enctype="multipart/form-data" action="#" method="post">
+    <form enctype="multipart/form-data" action="Login/php/authentication.php?lang=<?php echo $language['websiteLang']?>" method="Post">
         <div class="avatar">
             <i class="fa fa-user-circle-o fa-5x"></i>
         </div>
@@ -71,17 +72,26 @@ if(isset($_GET['lang']) && $_GET['lang'] == 'sk'){$language = include('Login/lan
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input type="text" class="form-control" name="username" placeholder="<?php echo $language['name']?>" required="required">
-
+            <input type="text"  id="userName" class="form-control" name="username" placeholder="<?php echo $language['name']?>" required="required">
+            <div class='invalid-feedback'></div>
         </div>
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <input type="password" class="form-control" name="password" placeholder="<?php echo $language['password']?>" required="required">
+            <input id="userPassword" type="password" class="form-control" name="password" placeholder="<?php echo $language['password']?>" required="required">
+            <div class='invalid-feedback'><?php echo $language['failedLogin']?></div>
+
         </div>
+        <?php
+            if(isset($_SESSION['login_failed'])){
+                echo "<script> document.getElementById('userName').classList.add('is-invalid')</script>";
+                echo "<script> document.getElementById('userPassword').classList.add('is-invalid')</script>";
+                unset($_SESSION['login_failed']);
+            }
+        ?>
         <div class="form-group">
-            <button type="submit" name="submitLoginLDAP" id="ldap" class="btn btn-primary btn-lg btn-block"><i class="fa fa-graduation-cap"></i><?php echo $language['loginButton']?></button>
+            <button type="submit" name="submitLogin" id="login" class="btn btn-primary btn-lg btn-block"><i class="fa fa-graduation-cap"></i><?php echo $language['loginButton']?></button>
         </div>
     </form>
 </div>

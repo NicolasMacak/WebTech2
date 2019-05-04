@@ -7,6 +7,7 @@
         'h2' => 'Please Sign in',
         'name' => 'Username',
         'password' => 'Password',
-        'loginButton' => 'Sign in'
+        'loginButton' => 'Sign in',
+        'failedLogin' => 'Incorrect login information!'
     )
 ?>
