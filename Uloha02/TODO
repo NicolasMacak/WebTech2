@@ -28,21 +28,47 @@ heslo
 )
 
 TimPredmetu(
-id predmetu ---- P
-id teamu    ---- K
+id teamu    ---- PK
 nazov predmetu
 body
 schvalene teamom (true/false)
 schvalene adminom (true/false)
 )
 
-ClenTimu( -- Prepojovacia tabulka0
+ClenTimu( -- Prepojovacia tabulka
 id timu PK
 id studenta PK
 body jednotlivca
 suhlasSBodmi (true/false)
 )
 
+--- SQL
+create table timy(
+id int (10) primary key not null,
+nazovPredmetu varchar(255) not null,
+rok int(4) not null,
+body float(4),
+schvaleneKapitanom boolean,
+schvaleneAdminom boolean
+)
+
+ver 2
+create table timy(
+cisloTimu int (10) not null,
+skratkaPredmetu varchar(255) not null,
+PRIMARY KEY (skratkaPredmetu, cisloTimu),
+body float(4),
+schvaleneKapitanom boolean,
+schvaleneAdminom boolean
+)
+
+create table clenoviaTimov(
+idTimu int(10) not null,
+idStudenta int(5) not null,
+primary key(idTimu, idStudenta),
+body float(4),
+suhlasSbodmi boolean
+)
 
 
 
