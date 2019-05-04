@@ -19,22 +19,37 @@ Preklikavanie medzi predmetmi
 
 
 --Databazy
-Studenti(
-id studenta PK
+Student(
+id PK
 Meno
 Email
 heslo
-cislo timu FK
-body 
-SchvaleneAdminom - TRUE/FALSE uzavrete po tom, ako admin schvali obodovanie timu
+
 )
 
-Tímy(
-cislo timu PK
-pocet bodov
-UzavereteStudentmi - TRUE/FALSE uzavrete po tom, ako sa studenti dohodnu na bodoch
-SchvaleneAdminom - TRUE/FALSE uzavrete po tom, ako admin schvali obodovanie timu
+Premdet(
+id PK
+nazov
 )
+
+TimPredmetu(
+id predmetu ---- P
+id teamu    ---- K
+body
+schvalene teamom (true/false)
+schvalene adminom (true/false)
+)
+
+ClenTimu( -- Prepojovacia tabulka
+id timu PK
+id studenta PK
+body jednotlivca
+suhlasSBodmi (true/false)
+)
+
+
+
+
 
 Clovek 1
 ADMIN stranka
