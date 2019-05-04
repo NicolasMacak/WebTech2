@@ -1,0 +1,50 @@
+--Prihlasenie
+sifrovanie hesiel
+
+--Zmeny sa musia diat in real time. Ziadne refreshe nie su potrebne pre nijakeho ucastnika stranky
+
+--ADMIN prostredie
+Prida studentov. Po po pridani sa mozu prihlasit a pouzivat studentske prostredie
+Po odsuhlaseni bodov v studentskom prostredi admin musia potvrdiť zmeny.
+
+--Student prostredie
+Rozdelia si body udelene adminom 
+Docasny stav sa musi niekam ukladat.
+
+
+Po odsuhlaseni tlacidlom je stav nemenny a tlacidla zablokovane
+Preklikavanie medzi predmetmi
+
+--Statistike udaje
+
+
+--Databazy
+Studenti(
+id studenta PK
+Meno
+Email
+heslo
+cislo timu FK
+body 
+SchvaleneAdminom - TRUE/FALSE uzavrete po tom, ako admin schvali obodovanie timu
+)
+
+Tímy(
+cislo timu PK
+pocet bodov
+UzavereteStudentmi - TRUE/FALSE uzavrete po tom, ako sa studenti dohodnu na bodoch
+SchvaleneAdminom - TRUE/FALSE uzavrete po tom, ako admin schvali obodovanie timu
+)
+
+Clovek 1
+ADMIN stranka
+Import Export CSV
+Prihlasenie
+
+Clovek2
+STUDENT stranka
+statistika
+
+
+
+
