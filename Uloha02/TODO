@@ -27,20 +27,16 @@ heslo
 
 )
 
-Premdet(
-id PK
-nazov
-)
-
 TimPredmetu(
 id predmetu ---- P
 id teamu    ---- K
+nazov predmetu
 body
 schvalene teamom (true/false)
 schvalene adminom (true/false)
 )
 
-ClenTimu( -- Prepojovacia tabulka
+ClenTimu( -- Prepojovacia tabulka0
 id timu PK
 id studenta PK
 body jednotlivca
