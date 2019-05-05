@@ -43,6 +43,7 @@ create table clenovaTimov(
 ID int PRIMARY KEY AUTO_INCREMENT not null,
 IDziaka int(5) not null,
 IDtimu int not null,
+jeKapitan boolean,
 body float (5),
 suhlas boolean
 );
