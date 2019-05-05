@@ -21,6 +21,53 @@ Preklikavanie medzi predmetmi
 
 
 --Databazy
+-- by samuel
+create table studenti(
+ID int(5) PRIMARY KEY not null,
+meno varchar(255) not null,
+email varchar(255) not null,
+heslo varchar(255) 
+);
+
+create table timy(
+ID int PRIMARY KEY AUTO_INCREMENT not null,
+cisloTimu int(3) not null,
+IDpredmetu int not null,
+rok int(4) not null,
+body float(5),
+schvaleneKapitanom boolean,
+schvaleneAdminom boolean
+);
+
+create table clenovaTimov(
+ID int PRIMARY KEY AUTO_INCREMENT not null,
+IDziaka int(5) not null,
+IDtimu int not null,
+body float (5),
+suhlas boolean
+);
+
+create table predmety(
+ID int PRIMARY KEY AUTO_INCREMENT not null,
+nazov varchar(255) not null,
+skratka varchar (10) not null
+);
+
+
+
+
+
+
+
+
+
+----
+
+
+
+
+
+
 Student(
 id PK
 Meno
